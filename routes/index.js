@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-12-02 09:58:11
- * @LastEditTime: 2021-12-10 18:18:59
+ * @LastEditTime: 2021-12-14 18:22:55
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-node-project\routes\index.js
@@ -14,7 +14,7 @@ var model = require('../model');
 router.get('/', function(req, res, next) {
   model.connect(function(db){
     db.collection('users').find().toArray(function(err,docs){
-      console.log('用户列表',docs);
+      console.log('用户列表11',docs);
       
     })
   })
@@ -22,6 +22,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/regist',function(req,res,next){
+  console.log('接口请求',res);
+  model.connect(function(db){
+    db.collection('users').find().toArray(function(err,docs){
+      console.log('用户列表',docs);
+      
+    })
+  })
+  
   res.render('regist',{})
 })
 
